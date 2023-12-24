@@ -43,4 +43,5 @@ def register():
             print("heoo",room_code)
             db.session.add(room_code)
             db.session.commit()
+            return redirect(url_for('main.login'))
     return render_template("register.html")
