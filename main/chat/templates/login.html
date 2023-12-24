@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('main.static', filename='style/login.css')}}">
+</head>
+<body>
+<div class="login-page">
+    <div class="form">   
+        <form action="{{url_for('main.login')}}" class="login-form" id="myForm" method='post'>
+          <h3 class="loginHead">Accounting App Admin Login</h3>
+        <input  id="email" placeholder="Enter your Email" name="email" required />
+        <input  id="password" placeholder="password" name="password" required/>
+        {% with messages = get_flashed_messages() %}
+          {%if messages%}
+            {% for message in messages %}
+              <p class="message"><i class="fa fa-times-circle"></i>&nbsp;{{message}}</p>
+            {%endfor%}
+          {%endif%} 
+        {%endwith%}  
+        <button id="btn">Login</button>
+        <p>Don't have an account?<a  class="link-danger" href="{{url_for('main.register')}}" > Register</a></p>
+        
+      </form>
+    </div>
+  </div>
+
+
+<script src="{{url_for('main.static', filename='script/login.js')}}"></script>
+
+</body>
+</html>
