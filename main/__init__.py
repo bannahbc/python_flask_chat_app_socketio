@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_socketio import SocketIO
-
+import os
 
 db = SQLAlchemy()
 
@@ -11,6 +11,8 @@ def app_create():
     # export FLASK_ENV=development  # Optional, but recommended for development
 
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///UserTable.sqlite3"
+    # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get['DATABASE_URL']
+    #postgres://flask_live_chat_app_user:LdPOe1BN2ZWoePXK4M1qmTRh7EKhSYvG@dpg-cm57gcocmk4c73cnn7bg-a.oregon-postgres.render.com/flask_live_chat_app
     app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
     app.secret_key = "jaguar"
     
